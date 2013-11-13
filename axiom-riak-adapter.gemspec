@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'axiom/riak/adapter/version'
+require 'axiom/adapter/riak/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "axiom-riak-adapter"
   spec.version       = Axiom::Riak::Adapter::VERSION
   spec.authors       = ["Michael Ries"]
   spec.email         = ["michael@riesd.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "A Riak Adapter for axiom"
+  spec.summary       = spec.description
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -19,5 +19,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rake", "~> 10.1"
+  spec.add_development_dependency "rspec", "~> 2.14"
+  spec.add_runtime_dependency "riak-client", "~> 1.4"
+  spec.add_runtime_dependency "axiom", "~> 0.1.1"
 end
