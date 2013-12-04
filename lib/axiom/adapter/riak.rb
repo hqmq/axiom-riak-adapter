@@ -21,7 +21,9 @@ module Axiom::Adapter
       bucket = client.bucket(relation.name.to_s)
       keys = bucket.keys
       hashes = keys.map { |key|
-        bucket.get(key).data.values_at(*attributes)
+        entry = bucket.get(key)
+        hash = entry.data.merge('key' => entry.key)
+        hash.values_at(*attributes)
       }
     end
 
