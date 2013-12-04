@@ -5,7 +5,7 @@ require 'axiom/adapter/riak/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "axiom-riak-adapter"
-  spec.version       = Axiom::Riak::Adapter::VERSION
+  spec.version       = Axiom::Adapter::Riak::VERSION
   spec.authors       = ["Michael Ries"]
   spec.email         = ["michael@riesd.com"]
   spec.description   = "A Riak Adapter for axiom"
