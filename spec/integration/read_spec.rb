@@ -1,13 +1,12 @@
 require 'spec_helper'
+require 'support/riak_connection'
 
 describe Axiom::Adapter::Riak, 'reading from riak' do
-  let(:client){ Riak::Client.new(:protocol => "pbc", :pb_port => 8087) }
-  let(:bucket){ client.bucket('people') }
-  let(:adapter){ described_class.new( URI.parse("riakpbc://127.0.0.1:8087") ) }
+  include_context "riak_connection"
+  let(:bucket){ riak.bucket('people') }
   let(:gateway){ adapter['people'] }
 
   before(:each) do
-    bucket.keys.each{|k| bucket.delete(k)} #remove everything from the bucket
     mary = bucket.new('mary')
     mary.data = {first_name: 'mary', last_name: 'contrary'}
     mary.store
